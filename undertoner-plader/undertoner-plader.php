@@ -31,6 +31,11 @@ public function form( $instance ) {
 
 // Viser widget i frontend
 public function widget( $args, $instance ) {
+
+    if ( ! is_single() || ! in_category('pladeanmeldelser') ) {
+    return;
+    }
+	
   $title = apply_filters( 'widget_title', $instance[ 'title' ] );
   $selskab = get_field( "selskab" );
   $related = get_field( "related" );
